@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import CardDetail from "./components/cartaProyecto";
 import MiaImg from "./assets/Mia.jpeg";
-import PabloImg from "./assets/WhatsApp Image 2026-01-05 at 8.57.44 PM.jpeg";
-import ManuelImg from "./assets/WhatsApp Image 2026-01-05 at 8.57.44 PM (1).jpeg";
-import MarizzaImg from "./assets/WhatsApp Image 2026-01-05 at 8.57.45 PM.jpeg";
+import PabloImg from "./assets/Pablo.jpeg";
+import ManuelImg from "./assets/Manuel.jpeg";
+import MarizzaImg from "./assets/Marizza.jpeg";
 import Modal from "./components/Modal";
 
 type Card = {
