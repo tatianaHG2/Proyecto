@@ -14,12 +14,9 @@ type Props = {
 function CardDetail({
     Ataque,
     Defensa,
-    Descripcion,
     Imagen,
     Nombre,
     Numero,
-    Tipo,
-    Debilidad = "",
     Rareza = "",
     onOpen,
     className = "",
