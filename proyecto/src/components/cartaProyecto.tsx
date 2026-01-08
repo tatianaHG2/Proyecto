@@ -7,6 +7,7 @@ type Props = {
     Descripcion: string;
     Imagen: string;
     Debilidad?: string;
+    Rareza?: string;
     onOpen?: () => void;
     className?: string;
 }
@@ -19,22 +20,25 @@ function CardDetail({
     Numero,
     Tipo,
     Debilidad = "",
+    Rareza = "",
     onOpen,
     className = "",
 
 }: Props) {
 
     return (
-        <div className={`border border-gray-300 rounded-lg p-4 w-64 cursor-pointer hover:shadow-md transition-shadow ${className}`} onClick={() => onOpen && onOpen()}>
-            <img src={Imagen} alt={Nombre} className="w-full h-32 object-contain rounded mb-2" />
-            <h3 className="text-blue-600 font-bold text-lg mb-1">{Nombre} (#{Numero})</h3>
-            <p className="text-gray-700 text-sm mb-1">Tipo: {Tipo}</p>
-            <div className="flex justify-between text-xs mb-2">
-                <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded">Ataque: {Ataque}</span>
-                <span className="bg-yellow-200 text-yellow-800 px-2 py-1 rounded">Defensa: {Defensa}</span>
+        <div className={`bg-blue-100 border-2 border-blue-500 rounded-xl p-6 w-72 cursor-pointer relative ${className}`} onClick={() => onOpen && onOpen()}>
+            {Rareza && (
+                <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    {Rareza}
+                </span>
+            )}
+            <img src={Imagen} alt={Nombre} className="w-full h-56 object-contain rounded-lg mb-4 shadow-md" />
+            <h3 className="text-red-600 font-bold text-xl mb-2 text-center">{Nombre} (#{Numero})</h3>
+            <div className="flex justify-between text-sm">
+                <span className="bg-blue-300 text-red-900 px-3 py-2 rounded-full font-semibold shadow-sm">Ataque: {Ataque}</span>
+                <span className="bg-blue-400 text-red-900 px-3 py-2 rounded-full font-semibold shadow-sm">Defensa: {Defensa}</span>
             </div>
-            <p className="text-gray-600 text-sm mb-1">{Descripcion}</p>
-            <p className="text-gray-500 text-xs">Debilidad: {Debilidad}</p>
         </div>
     );
 }

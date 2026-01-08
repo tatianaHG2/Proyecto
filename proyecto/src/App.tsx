@@ -15,6 +15,8 @@ type Card = {
   Defensa: number;
   Descripcion: string;
   Debilidad?: string;
+  Rareza?: string;
+  Imagen?: string;
 };
 
 function App() {
@@ -24,10 +26,12 @@ function App() {
   const closeModal = () => setSelected(null);
 
   return (
-    <div className="flex gap-x-4">
-      <h1 className="font-serif text-xl font-bold italic text-red-600">
-        Heroes
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-blue-100 to-purple-100 p-8">
+      <h1 className="font-serif text-3xl font-bold italic text-red-600 text-center mb-8">
+        Rebelde Way
       </h1>
+
+      <div className="flex flex-wrap justify-center gap-6">
 
       <CardDetail
         Ataque={100}
@@ -38,6 +42,7 @@ function App() {
         Numero={37}
         Tipo="Cantante de Rock"
         Debilidad="Dramatica"
+        Rareza="Legendaria"
         onOpen={() =>
           openCard({
             Numero: 37,
@@ -47,6 +52,8 @@ function App() {
             Defensa: 50,
             Descripcion: "Manipula a sus enemigos con su mirada",
             Debilidad: "Dramatica",
+            Rareza: "Legendaria",
+            Imagen: MiaImg,
           })
         }
       />
@@ -60,6 +67,7 @@ function App() {
         Numero={38}
         Tipo="Activista y Músico Underground"
         Debilidad="Impulsiva"
+        Rareza="Épica"
         onOpen={() =>
           openCard({
             Numero: 38,
@@ -69,6 +77,8 @@ function App() {
             Defensa: 80,
             Descripcion: "Desafía la Autoridad y Consigue Aliados",
             Debilidad: "Impulsiva",
+            Rareza: "Épica",
+            Imagen: MarizzaImg,
           })
         }
       />
@@ -82,6 +92,7 @@ function App() {
         Numero={39}
         Tipo="Estratega y Becado"
         Debilidad="Sentimental"
+        Rareza="Mítica"
         onOpen={() =>
           openCard({
             Numero: 39,
@@ -91,6 +102,8 @@ function App() {
             Defensa: 60,
             Descripcion: "Planea su Venganza en Secreto",
             Debilidad: "Sentimental",
+            Rareza: "Mítica",
+            Imagen: ManuelImg,
           })
         }
       />
@@ -104,6 +117,7 @@ function App() {
         Numero={12}
         Tipo="Político en Formación"
         Debilidad="Cobarde"
+        Rareza="Rara"
         onOpen={() =>
           openCard({
             Numero: 12,
@@ -113,9 +127,13 @@ function App() {
             Defensa: 90,
             Descripcion: "Controla el Entorno y las Relaciones",
             Debilidad: "Cobarde",
+            Rareza: "Rara",
+            Imagen: PabloImg,
           })
         }
       />
+
+      </div>
 
       {selected && (
         <Modal
@@ -126,6 +144,8 @@ function App() {
           Numero={selected.Numero}
           Tipo={selected.Tipo}
           Debilidad={selected.Debilidad}
+          Rareza={selected.Rareza}
+          Imagen={selected.Imagen}
           onClose={closeModal}
         />
       )}

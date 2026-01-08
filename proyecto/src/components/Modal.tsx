@@ -6,6 +6,8 @@ type props = {
   Defensa: number;
   Descripcion: string;
   Debilidad?: string;
+  Rareza?: string;
+  Imagen?: string;
   onClose?: () => void;
 };
 function Modal({
@@ -16,6 +18,8 @@ function Modal({
   Nombre,
   Numero,
   Debilidad = "",
+  Rareza = "",
+  Imagen = "",
   onClose,
 }: props) {
   return (
@@ -33,9 +37,17 @@ function Modal({
               ✕
             </button>
           </div>
+          {Imagen && (
+            <img src={Imagen} alt={Nombre} className="w-full h-40 object-contain rounded-lg mb-4 shadow-md" />
+          )}
           <p className="text-gray-600 mb-2">
             Tipo: <span className="font-semibold">{Tipo}</span>
           </p>
+          {Rareza && (
+            <p className="text-gray-600 mb-2">
+              Rareza: <span className="font-semibold text-red-600">{Rareza}</span>
+            </p>
+          )}
           <div className="flex justify-between text-sm mb-4">
             <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full">
               Ataque: {Ataque}
