@@ -5,6 +5,7 @@ import MiaImg from "./assets/Mia.jpeg";
 import PabloImg from "./assets/Pablo.jpeg";
 import ManuelImg from "./assets/Manuel.jpeg";
 import MarizzaImg from "./assets/Marizza.jpeg";
+import MarcosImg from "./assets/marcos.jpg";
 import VicoImg from "./assets/vico.jpg";
 import FelicitasImg from "./assets/felicitas.jpeg";
 import Modal from "./components/Modal";
@@ -81,6 +82,31 @@ function App() {
             Debilidad: "Impulsiva",
             Rareza: "Épica",
             Imagen: MarizzaImg,
+          })
+        }
+      />
+
+      <CardDetail
+        Ataque={88}
+        Nombre="Marcos Aguilar"
+        Defensa={72}
+        Descripcion="Marcos Aguilar es un talentoso guitarrista y compositor del grupo, conocido por su creatividad y lealtad al equipo."
+        Imagen={MarcosImg}
+        Numero={42}
+        Tipo="Guitarrista Creativo"
+        Debilidad="Introvertido"
+        Rareza="Rara"
+        onOpen={() =>
+          openCard({
+            Numero: 42,
+            Nombre: "Marcos Aguilar",
+            Tipo: "Guitarrista Creativo",
+            Ataque: 88,
+            Defensa: 72,
+            Descripcion: "Marcos Aguilar es un talentoso guitarrista y compositor del grupo, conocido por su creatividad y lealtad al equipo.",
+            Debilidad: "Introvertido",
+            Rareza: "Rara",
+            Imagen: MarcosImg,
           })
         }
       />
