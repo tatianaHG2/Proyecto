@@ -22,17 +22,17 @@ function CardDetail({
 }: Props) {
 
     return (
-        <div className={`bg-blue-100 border-2 border-blue-500 rounded-xl p-6 w-72 cursor-pointer relative ${className}`} onClick={() => onOpen && onOpen()}>
+        <div className={`bg-black border-2 border-red-500 rounded-xl p-6 w-72 cursor-pointer relative ${className}`} onClick={() => onOpen && onOpen()}>
             {Rareza && (
                 <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
                     {Rareza}
                 </span>
             )}
             <img src={Imagen} alt={Nombre} className="w-full h-56 object-contain rounded-lg mb-4 shadow-md" />
-            <h3 className="text-red-600 font-bold text-xl mb-2 text-center">{Nombre}</h3>
+            <h3 className="text-white font-bold text-xl mb-2 text-center">{Nombre}</h3>
             <div className="flex justify-between text-sm">
-                <span className="bg-blue-300 text-red-900 px-3 py-2 rounded-full font-semibold shadow-sm">Ataque: {Ataque}</span>
-                <span className="bg-blue-400 text-red-900 px-3 py-2 rounded-full font-semibold shadow-sm">Defensa: {Defensa}</span>
+                <span className="bg-red-600 text-white px-3 py-2 rounded-full font-semibold shadow-sm">Ataque: {Ataque}</span>
+                <span className="bg-red-700 text-white px-3 py-2 rounded-full font-semibold shadow-sm">Defensa: {Defensa}</span>
             </div>
         </div>
     );

@@ -34,8 +34,8 @@ function App() {
   const closeModal = () => setSelected(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-blue-100 to-purple-100 p-8">
-      <h1 className="font-serif text-3xl font-bold italic text-red-600 text-center mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-red-900 p-8">
+      <h1 className="font-serif text-3xl font-bold italic text-white text-center mb-8">
         Rebelde Way
       </h1>
 
@@ -187,9 +187,9 @@ function App() {
 
       <CardDetail
         Ataque={95}
-        Nombre="Felicitas"
+        Nombre="Felicitas Mitre"
         Defensa={85}
-        Descripcion="Felicitas es una artista plástica sensible y perfeccionista, que expresa sus emociones a través de sus obras y enfrenta inseguridades en el Elite Way School."
+        Descripcion="Felicitas es sensible y perfeccionista, que expresa sus emociones a través de sus obras y enfrenta inseguridades en el Elite Way School."
         Imagen={FelicitasImg}
         Tipo="Apoyo emocional"
         Debilidad="Insegura"
@@ -197,11 +197,11 @@ function App() {
         onOpen={() =>
           openCard({
             Numero: 41,
-            Nombre: "Felicitas",
+            Nombre: "Felicitas Mitre",
             Tipo: "Apoyo emocional",
             Ataque: 95,
             Defensa: 85,
-            Descripcion: "Felicitas es una artista plástica sensible y perfeccionista, que expresa sus emociones a través de sus obras y enfrenta inseguridades en el Elite Way School.",
+            Descripcion: "Felicitas es  sensible y perfeccionista, que expresa sus emociones a través de sus obras y enfrenta inseguridades en el Elite Way School.",
             Debilidad: "Insegura",
             Rareza: "Legendaria",
             Imagen: FelicitasImg,
