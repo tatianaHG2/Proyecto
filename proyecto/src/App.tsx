@@ -283,7 +283,7 @@ function App() {
 
       <CardDetail
         Ataque={85}
-        Nombre="Sonia Pizarro"
+        Nombre="Sonia Rey"
         Defensa={90}
         Descripcion="Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia."
         Imagen={SoniaImg}
@@ -293,7 +293,7 @@ function App() {
         onOpen={() =>
           openCard({
             Numero: 46,
-            Nombre: "Sonia Pizarro",
+            Nombre: "Sonia Rey",
             Tipo: "Vedette Extravagante",
             Ataque: 85,
             Defensa: 90,
