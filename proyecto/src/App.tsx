@@ -215,7 +215,6 @@ function App() {
         Defensa={70}
         Descripcion="Sergio Bustamante es padre de Pablo, un joven arrogante y heredero de una fortuna, que usa su posición para manipular a los demás en el Elite Way School."
         Imagen={SergioImg}
-        Numero={43}
         Tipo="Politico corrupto"
         Debilidad="Arrogante"
         Rareza="Rara"
@@ -240,7 +239,6 @@ function App() {
         Defensa={60}
         Descripcion="Blas es un matón agresivo que intimida a los estudiantes más débiles, buscando imponer su autoridad en la escuela."
         Imagen={BlasImg}
-        Numero={44}
         Tipo="Matón Escolar"
         Debilidad="Violento"
         Rareza="Común"
@@ -265,7 +263,6 @@ function App() {
         Defensa={85}
         Descripcion="Lujan es una amiga fiel y divertia, conocido por su personalidad extrovertida y su apoyo incondicional a sus amigos en Rebelde Way."
         Imagen={LujanImg}
-        Numero={45}
         Tipo="Amiga Leal"
         Debilidad="Demasiado Confiada"
         Rareza="Épica"
@@ -290,7 +287,6 @@ function App() {
         Defensa={90}
         Descripcion="Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia y su hermanastra."
         Imagen={SoniaImg}
-        Numero={46}
         Tipo="Vedette Extravagante"
         Debilidad="Exagerada"
         Rareza="Legendaria"
@@ -315,7 +311,6 @@ function App() {
         Defensa={85}
         Descripcion="Empresario de moda millonario y padre sobreprotector de Mia, con perfil autoritario y pasado complejo."
         Imagen={FrancoImg}
-        Numero={47}
         Tipo="Empresario de Moda"
         Debilidad="Sobreprotector"
         Rareza="Legendaria"
