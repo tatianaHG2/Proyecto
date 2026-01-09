@@ -8,6 +8,11 @@ import MarizzaImg from "./assets/Marizza.jpeg";
 import MarcosImg from "./assets/marcos.jpg";
 import VicoImg from "./assets/vico.jpg";
 import FelicitasImg from "./assets/felicitas.jpeg";
+import SergioImg from "./assets/sergioB.jpg";
+import BlasImg from "./assets/blas.webp";
+import LujanImg from "./assets/lujan.jpg";
+import SoniaImg from "./assets/sonia.jpg";
+import FrancoImg from "./assets/franco.jpg";
 import Modal from "./components/Modal";
 
 type Card = {
@@ -42,7 +47,6 @@ function App() {
         Defensa={50}
         Descripcion="Mia Colucci es la líder carismática del grupo Rebelde Way, una cantante talentosa que lucha por sus ideales y enfrenta conflictos amorosos y familiares en el Elite Way School."
         Imagen={MiaImg}
-        Numero={37}
         Tipo="Líder Rebelde"
         Debilidad="Celosa"
         Rareza="Legendaria"
@@ -67,15 +71,14 @@ function App() {
         Defensa={80}
         Descripcion="Marizza Pia Spirito es una activista punk apasionada por la justicia social, forma parte de la banda Rebelde Way y desafía las normas establecidas en la escuela."
         Imagen={MarizzaImg}
-        Numero={38}
-        Tipo="Activista Punk"
+        Tipo="Lider social"
         Debilidad="Impulsiva"
         Rareza="Épica"
         onOpen={() =>
           openCard({
             Numero: 38,
             Nombre: "Marizza Pia Spirito",
-            Tipo: "Activista Punk",
+            Tipo: "Lider social",
             Ataque: 90,
             Defensa: 80,
             Descripcion: "Marizza Pia Spirito es una activista punk apasionada por la justicia social, forma parte de la banda Rebelde Way y desafía las normas establecidas en la escuela.",
@@ -92,7 +95,6 @@ function App() {
         Defensa={72}
         Descripcion="Marcos Aguilar es un talentoso guitarrista y compositor del grupo, conocido por su creatividad y lealtad al equipo."
         Imagen={MarcosImg}
-        Numero={42}
         Tipo="Guitarrista Creativo"
         Debilidad="Introvertido"
         Rareza="Rara"
@@ -100,7 +102,7 @@ function App() {
           openCard({
             Numero: 42,
             Nombre: "Marcos Aguilar",
-            Tipo: "Guitarrista Creativo",
+            Tipo: "Cerebrito",
             Ataque: 88,
             Defensa: 72,
             Descripcion: "Marcos Aguilar es un talentoso guitarrista y compositor del grupo, conocido por su creatividad y lealtad al equipo.",
@@ -117,7 +119,6 @@ function App() {
         Defensa={60}
         Descripcion="Manuel Aguirre, un estudiante becado inteligente y estratega, planea vengarse de aquellos que lo han humillado, mostrando su lado oscuro en el Elite Way School."
         Imagen={ManuelImg}
-        Numero={39}
         Tipo="Becado Vengativo"
         Debilidad="Obsesivo"
         Rareza="Mítica"
@@ -142,7 +143,6 @@ function App() {
         Defensa={90}
         Descripcion="Pablo Bustamante, hijo de un político influyente, manipula situaciones para su beneficio, pero lucha con su inseguridad interna en el Elite Way School."
         Imagen={PabloImg}
-        Numero={12}
         Tipo="Político Manipulador"
         Debilidad="Inseguro"
         Rareza="Rara"
@@ -167,7 +167,6 @@ function App() {
         Defensa={75}
         Descripcion="Victoria Paz, conocida como Vico C, es una rapera arrogante y talentosa que compite con Mia por el liderazgo del grupo Rebelde Way en la escuela."
         Imagen={VicoImg}
-        Numero={40}
         Tipo="Rapera Arrogante"
         Debilidad="Arrogante"
         Rareza="Épica"
@@ -192,21 +191,145 @@ function App() {
         Defensa={85}
         Descripcion="Felicitas es una artista plástica sensible y perfeccionista, que expresa sus emociones a través de sus obras y enfrenta inseguridades en el Elite Way School."
         Imagen={FelicitasImg}
-        Numero={41}
-        Tipo="Artista Plástica"
+        Tipo="Apoyo emocional"
         Debilidad="Insegura"
         Rareza="Legendaria"
         onOpen={() =>
           openCard({
             Numero: 41,
             Nombre: "Felicitas",
-            Tipo: "Artista Plástica",
+            Tipo: "Apoyo emocional",
             Ataque: 95,
             Defensa: 85,
             Descripcion: "Felicitas es una artista plástica sensible y perfeccionista, que expresa sus emociones a través de sus obras y enfrenta inseguridades en el Elite Way School.",
             Debilidad: "Insegura",
             Rareza: "Legendaria",
             Imagen: FelicitasImg,
+          })
+        }
+      />
+
+      <CardDetail
+        Ataque={80}
+        Nombre="Sergio Bustamante"
+        Defensa={70}
+        Descripcion="Sergio Bustamante es padre de Pablo, un joven arrogante y heredero de una fortuna, que usa su posición para manipular a los demás en el Elite Way School."
+        Imagen={SergioImg}
+        Numero={43}
+        Tipo="Politico corrupto"
+        Debilidad="Arrogante"
+        Rareza="Rara"
+        onOpen={() =>
+          openCard({
+            Numero: 43,
+            Nombre: "Sergio Bustamante",
+            Tipo: "Politico corrupto",
+            Ataque: 80,
+            Defensa: 70,
+            Descripcion: "Sergio Bustamante es el padre de Pablo, un joven arrogante y heredero de una fortuna, que usa su posición para manipular a los demás en el Elite Way School.",
+            Debilidad: "Arrogante",
+            Rareza: "Rara",
+            Imagen: SergioImg,
+          })
+        }
+      />
+
+      <CardDetail
+        Ataque={110}
+        Nombre="Blas Heredia"
+        Defensa={60}
+        Descripcion="Blas es un matón agresivo que intimida a los estudiantes más débiles, buscando imponer su autoridad en la escuela."
+        Imagen={BlasImg}
+        Numero={44}
+        Tipo="Matón Escolar"
+        Debilidad="Violento"
+        Rareza="Común"
+        onOpen={() =>
+          openCard({
+            Numero: 44,
+            Nombre: "Blas Heredia",
+            Tipo: "Matón Escolar",
+            Ataque: 110,
+            Defensa: 60,
+            Descripcion: "Blas es un matón agresivo que intimida a los estudiantes más débiles, buscando imponer su autoridad en la escuela.",
+            Debilidad: "Violento",
+            Rareza: "Común",
+            Imagen: BlasImg,
+          })
+        }
+      />
+
+      <CardDetail
+        Ataque={75}
+        Nombre="Lujan Linares"
+        Defensa={85}
+        Descripcion="Lujan es una amiga fiel y divertia, conocido por su personalidad extrovertida y su apoyo incondicional a sus amigos en Rebelde Way."
+        Imagen={LujanImg}
+        Numero={45}
+        Tipo="Amiga Leal"
+        Debilidad="Demasiado Confiada"
+        Rareza="Épica"
+        onOpen={() =>
+          openCard({
+            Numero: 45,
+            Nombre: "Lujan Linares",
+            Tipo: "Amiga Leal",
+            Ataque: 75,
+            Defensa: 85,
+            Descripcion: "Lujan es una amiga fiel y divertia, conocido por su personalidad extrovertida y su apoyo incondicional a sus amigos en Rebelde Way.",
+            Debilidad: "Demasiado Confiada",
+            Rareza: "Épica",
+            Imagen: LujanImg,
+          })
+        }
+      />
+
+      <CardDetail
+        Ataque={85}
+        Nombre="Sonia Pizarro"
+        Defensa={90}
+        Descripcion="Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia y su hermanastra."
+        Imagen={SoniaImg}
+        Numero={46}
+        Tipo="Vedette Extravagante"
+        Debilidad="Exagerada"
+        Rareza="Legendaria"
+        onOpen={() =>
+          openCard({
+            Numero: 46,
+            Nombre: "Sonia Pizarro",
+            Tipo: "Vedette Extravagante",
+            Ataque: 85,
+            Defensa: 90,
+            Descripcion: "Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia y su hermanastra.",
+            Debilidad: "Exagerada",
+            Rareza: "Legendaria",
+            Imagen: SoniaImg,
+          })
+        }
+      />
+
+      <CardDetail
+        Ataque={95}
+        Nombre="Franco Colucci"
+        Defensa={85}
+        Descripcion="Empresario de moda millonario y padre sobreprotector de Mia, con perfil autoritario y pasado complejo."
+        Imagen={FrancoImg}
+        Numero={47}
+        Tipo="Empresario de Moda"
+        Debilidad="Sobreprotector"
+        Rareza="Legendaria"
+        onOpen={() =>
+          openCard({
+            Numero: 47,
+            Nombre: "Franco Colucci",
+            Tipo: "Empresario de Moda",
+            Ataque: 95,
+            Defensa: 85,
+            Descripcion: "Empresario de moda millonario y padre sobreprotector de Mia, con perfil autoritario y pasado complejo.",
+            Debilidad: "Sobreprotector",
+            Rareza: "Legendaria",
+            Imagen: FrancoImg,
           })
         }
       />

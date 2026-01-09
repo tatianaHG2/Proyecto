@@ -1,5 +1,4 @@
 type Props = {
-    Numero: number;
     Nombre: string;
     Tipo: string;
     Ataque: number;
@@ -16,7 +15,6 @@ function CardDetail({
     Defensa,
     Imagen,
     Nombre,
-    Numero,
     Rareza = "",
     onOpen,
     className = "",
@@ -31,7 +29,7 @@ function CardDetail({
                 </span>
             )}
             <img src={Imagen} alt={Nombre} className="w-full h-56 object-contain rounded-lg mb-4 shadow-md" />
-            <h3 className="text-red-600 font-bold text-xl mb-2 text-center">{Nombre} ({Numero})</h3>
+            <h3 className="text-red-600 font-bold text-xl mb-2 text-center">{Nombre}</h3>
             <div className="flex justify-between text-sm">
                 <span className="bg-blue-300 text-red-900 px-3 py-2 rounded-full font-semibold shadow-sm">Ataque: {Ataque}</span>
                 <span className="bg-blue-400 text-red-900 px-3 py-2 rounded-full font-semibold shadow-sm">Defensa: {Defensa}</span>
