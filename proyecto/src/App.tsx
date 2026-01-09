@@ -285,7 +285,7 @@ function App() {
         Ataque={85}
         Nombre="Sonia Pizarro"
         Defensa={90}
-        Descripcion="Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia y su hermanastra."
+        Descripcion="Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia."
         Imagen={SoniaImg}
         Tipo="Vedette Extravagante"
         Debilidad="Exagerada"
@@ -297,7 +297,7 @@ function App() {
             Tipo: "Vedette Extravagante",
             Ataque: 85,
             Defensa: 90,
-            Descripcion: "Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia y su hermanastra.",
+            Descripcion: "Madre de Marizza, vedette extravagante y dedicada, figura maternal para Mia.",
             Debilidad: "Exagerada",
             Rareza: "Legendaria",
             Imagen: SoniaImg,
