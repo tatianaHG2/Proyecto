@@ -34,8 +34,8 @@ function App() {
   const closeModal = () => setSelected(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-red-900 p-8">
-      <h1 className="font-serif text-3xl font-bold italic text-white text-center mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-black to-pink-500 p-8">
+      <h1 className="text-3xl font-bold text-white text-center mb-8">
         Rebelde Way
       </h1>
 
@@ -49,7 +49,7 @@ function App() {
         Imagen={MiaImg}
         Tipo="Líder Rebelde"
         Debilidad="Celosa"
-        Rareza="Legendaria"
+        Rareza="Mítica"
         onOpen={() =>
           openCard({
             Numero: 37,
@@ -59,7 +59,7 @@ function App() {
             Defensa: 50,
             Descripcion: "Mia Colucci es la líder carismática del grupo Rebelde Way, una cantante talentosa que lucha por sus ideales y enfrenta conflictos amorosos y familiares en el Elite Way School.",
             Debilidad: "Celosa",
-            Rareza: "Legendaria",
+            Rareza: "Mítica",
             Imagen: MiaImg,
           })
         }
@@ -73,7 +73,7 @@ function App() {
         Imagen={MarizzaImg}
         Tipo="Lider social"
         Debilidad="Impulsiva"
-        Rareza="Épica"
+        Rareza="Legendaria"
         onOpen={() =>
           openCard({
             Numero: 38,
@@ -83,7 +83,7 @@ function App() {
             Defensa: 80,
             Descripcion: "Marizza Pia Spirito es una activista punk apasionada por la justicia social, forma parte de la banda Rebelde Way y desafía las normas establecidas en la escuela.",
             Debilidad: "Impulsiva",
-            Rareza: "Épica",
+            Rareza: "Legendaria",
             Imagen: MarizzaImg,
           })
         }
@@ -97,7 +97,7 @@ function App() {
         Imagen={MarcosImg}
         Tipo="Guitarrista Creativo"
         Debilidad="Introvertido"
-        Rareza="Rara"
+        Rareza="Épica"
         onOpen={() =>
           openCard({
             Numero: 42,
@@ -107,7 +107,7 @@ function App() {
             Defensa: 72,
             Descripcion: "Marcos Aguilar es un talentoso guitarrista y compositor del grupo, conocido por su creatividad y lealtad al equipo.",
             Debilidad: "Introvertido",
-            Rareza: "Rara",
+            Rareza: "Épica",
             Imagen: MarcosImg,
           })
         }
@@ -141,21 +141,21 @@ function App() {
         Ataque={70}
         Nombre="Pablo Bustamante"
         Defensa={90}
-        Descripcion="Pablo Bustamante, hijo de un político influyente, manipula situaciones para su beneficio, pero lucha con su inseguridad interna en el Elite Way School."
+        Descripcion="Pablo Bustamante es un joven de la oposición política que lucha contra el corrupto gobierno de su padre Sergio, perteneciente al partido opuesto, logrando mandarlo preso por lavado de dinero en el Elite Way School."
         Imagen={PabloImg}
-        Tipo="Político Manipulador"
+        Tipo="Opositor Político"
         Debilidad="Inseguro"
-        Rareza="Rara"
+        Rareza="Mítica"
         onOpen={() =>
           openCard({
             Numero: 12,
             Nombre: "Pablo Bustamante",
-            Tipo: "Político Manipulador",
+            Tipo: "Opositor Político",
             Ataque: 70,
             Defensa: 90,
-            Descripcion: "Pablo Bustamante, hijo de un político influyente, manipula situaciones para su beneficio, pero lucha con su inseguridad interna en el Elite Way School.",
+            Descripcion: "Pablo Bustamante es un joven de la oposición política que lucha contra el corrupto gobierno de su padre Sergio, perteneciente al partido opuesto, logrando mandarlo preso por lavado de dinero en el Elite Way School.",
             Debilidad: "Inseguro",
-            Rareza: "Rara",
+            Rareza: "Mítica",
             Imagen: PabloImg,
           })
         }
@@ -217,7 +217,7 @@ function App() {
         Imagen={SergioImg}
         Tipo="Politico corrupto"
         Debilidad="Arrogante"
-        Rareza="Rara"
+        Rareza="Épica"
         onOpen={() =>
           openCard({
             Numero: 43,
@@ -227,7 +227,7 @@ function App() {
             Defensa: 70,
             Descripcion: "Sergio Bustamante es el padre de Pablo, un joven arrogante y heredero de una fortuna, que usa su posición para manipular a los demás en el Elite Way School.",
             Debilidad: "Arrogante",
-            Rareza: "Rara",
+            Rareza: "Épica",
             Imagen: SergioImg,
           })
         }
