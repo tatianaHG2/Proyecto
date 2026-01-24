@@ -23,7 +23,7 @@ function Modal({
   onClose,
 }: props) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.71)] z-50">
       <div className="bg-gradient-to-br from-black to-pink-500 rounded-2xl p-8 w-96 max-w-full mx-4 shadow-2xl border-2 border-pink-500">
         <div className="bg-black bg-opacity-95 rounded-xl p-6">
           <div className="flex justify-between items-center mb-4">
