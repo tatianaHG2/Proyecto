@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 type NewCard = {
   Nombre: string;
@@ -396,6 +397,20 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
           Vista en tiempo real de cómo se verá tu carta
         </p>
       </div>
+         <div className="flex justify-center mb-8"></div>
+                  <Link to= '/inicio'  className="group relative inline-flex items-center justify-center px-8 py-4 
+          from-purple-600 to-blue-600 
+            text-white font-bold text-lg rounded-xl
+            shadow-lg hover:shadow-2xl 
+            transform transition-all duration-300 
+            hover:scale-105 hover:from-purple-700 hover:to-blue-700
+            focus:outline-none focus:ring-4 focus:ring-purple-300
+            overflow-hidden"
+
+        >  
+          
+              
+        Ver Cartas</Link>
     </div>
   );
 };

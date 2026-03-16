@@ -214,19 +214,6 @@ function Modal({
           </button>
         </div>
       </div>
-
-      <style>{`
-        @keyframes modalAppear {
-          0% {
-            opacity: 0;
-            transform: scale(0.9) translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }
