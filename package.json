@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "proyecto": "^1.0.3",
-    "vite": "^7.2.2"
+    "vite": "^8.0.0"
   }
 }
