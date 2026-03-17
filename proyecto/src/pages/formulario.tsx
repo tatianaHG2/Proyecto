@@ -83,7 +83,7 @@ const CardPreview = ({ card }: { card: NewCard }) => {
     <div 
       className={`
         relative w-72 rounded-xl overflow-hidden
-        bg-gradient-to-b ${getTipoColor(card.Tipo)}
+      ${getTipoColor(card.Tipo)}
         border-2 border-red-600 shadow-[0_0_20px_rgba(139,0,0,0.3)]
         group
       `}
@@ -104,9 +104,9 @@ const CardPreview = ({ card }: { card: NewCard }) => {
       </div>
 
       <div className="relative m-4 mb-2">
-        <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600 to-red-600 rounded-lg blur-sm opacity-50"></div>
+        <div className="absolute -inset-2  from-yellow-600 to-red-600 rounded-lg blur-sm opacity-50"></div>
         <div className="absolute -inset-1 bg-black rounded-lg transform scale-[1.02]"></div>
-                <div className="relative z-10 p-1.5 bg-gradient-to-br from-amber-800 to-amber-600 rounded-lg shadow-xl">
+                <div className="relative z-10 p-1.5  from-amber-800 to-amber-600 rounded-lg shadow-xl">
           <div className="absolute inset-0 rounded-lg border-2 border-amber-400/30 pointer-events-none"></div>
           
           <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-400 rounded-tl-lg"></div>
@@ -167,7 +167,7 @@ const CardPreview = ({ card }: { card: NewCard }) => {
         )}
       </div>
 
-      <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-black/50 to-transparent transform rotate-45 translate-x-6 translate-y-6"></div>
+      <div className="absolute bottom-0 right-0 w-12 h-12  from-black/50 to-transparent transform rotate-45 translate-x-6 translate-y-6"></div>
     </div>
   );
 };
@@ -218,7 +218,7 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
     <div className="flex flex-col lg:flex-row gap-8 justify-center items-start p-4">
       <form onSubmit={handleSubmit} 
         className="w-full lg:w-[500px] p-6 
-        bg-gradient-to-br from-black/90 via-red-950/90 to-black/90 
+         from-black/90 via-red-950/90 to-black/90 
         border-2 border-red-700 rounded-2xl
         shadow-[0_0_30px_rgba(139,0,0,0.3)] 
         backdrop-blur-sm relative overflow-hidden">
@@ -227,7 +227,7 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
           REBELDE
         </div>
         
-        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[3px]  from-transparent via-red-600 to-transparent"></div>
 
         <h2 className="text-white font-['Black_Ops_One',cursive] text-2xl mb-6 pb-2 border-b-2 border-red-700
           drop-shadow-[0_0_10px_rgba(139,0,0,0.5)]">
@@ -371,7 +371,7 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
           <button 
             type="submit" 
             disabled={Object.values(errors).some((v) => v && v.length > 0)}
-            className="mt-4 bg-gradient-to-r from-black to-red-800 text-white 
+            className="mt-4  from-black to-red-800 text-white 
               font-['Black_Ops_One',cursive] uppercase tracking-wider
               py-3 px-6 rounded-full border-2 border-red-700
               hover:border-yellow-600 hover:shadow-[0_5px_20px_rgba(139,0,0,0.5)]
@@ -380,7 +380,7 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
               disabled:hover:shadow-none disabled:hover:border-red-700
               relative overflow-hidden group">
               <span className="relative z-10">Crear carta</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+              <span className="absolute inset-0  from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
           </button>
         </div>
       </form>

@@ -66,6 +66,8 @@ function App() {
   // 4. useEffect para cargar los datos al iniciar
   // esto es lo que te dije que tenias que poner tati
   useEffect(() => {
+
+    
     fetchCards();
   }, []);
 
@@ -80,7 +82,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-red-900 to-black text-white font-['Inter'] relative overflow-x-hidden">
+    <div className="min-h-screen  from-purple-400 via-red-900 to-black text-white font-['Inter'] relative overflow-x-hidden">
       {loading ? (
         <div className="flex justify-center items-center h-screen">
           Cargando cartas...

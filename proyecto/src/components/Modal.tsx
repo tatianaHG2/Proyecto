@@ -85,7 +85,7 @@ function Modal({
       <div 
         className={`
           relative w-80 max-w-full
-          bg-gradient-to-br from-black via-red-950 to-black
+        from-black via-red-950 to-black
           border-2 ${rarezaStyle.border}
           rounded-xl p-1
           shadow-[0_0_25px_rgba(139,0,0,0.5)] ${rarezaStyle.glow}
@@ -94,7 +94,7 @@ function Modal({
         `}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-0.5 from-transparent via-yellow-400 to-transparent"></div>
         
         <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-yellow-600 rounded-tl-xl"></div>
         <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-yellow-600 rounded-tr-xl"></div>
@@ -121,7 +121,7 @@ function Modal({
               className="w-7 h-7 rounded-full bg-red-900/50 border border-red-700
                 text-white text-lg hover:bg-red-800 hover:border-yellow-600
                 transition-all duration-300 hover:rotate-90 hover:scale-110
-                flex items-center justify-center flex-shrink-0"
+                flex items-center justify-center "
             >
               ✕
             </button>
@@ -129,10 +129,10 @@ function Modal({
 
           {Imagen && (
             <div className="relative mb-3 group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-red-600 to-yellow-600 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              <div className="absolute -inset-2  from-red-600 to-yellow-600 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity"></div>
               <div className="absolute -inset-1 bg-black rounded-lg transform scale-[1.02]"></div>
               
-              <div className="relative z-10 p-1 bg-gradient-to-br from-amber-800 to-amber-600 rounded-lg shadow-lg">
+              <div className="relative z-10 p-1  from-amber-800 to-amber-600 rounded-lg shadow-lg">
                 <div className="absolute inset-0 rounded-lg border-2 border-amber-400/30 pointer-events-none"></div>
                 
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-400 rounded-tl-lg"></div>
@@ -150,7 +150,7 @@ function Modal({
               {Rareza && (
                 <span className={`
                   absolute -top-1 -right-1 z-20
-                  bg-gradient-to-r ${rarezaStyle.bg} text-white
+                 ${rarezaStyle.bg} text-white
                   px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider
                   border border-white/30 shadow-lg
                   transform rotate-3
@@ -204,7 +204,7 @@ function Modal({
 
           <button
             onClick={onClose}
-            className="mt-3 w-full py-1.5 bg-gradient-to-r from-red-900 to-red-800
+            className="mt-3 w-full py-1.5  from-red-900 to-red-800
               text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
               rounded-lg border border-red-700 hover:border-yellow-600
               transition-all duration-300 hover:-translate-y-0.5

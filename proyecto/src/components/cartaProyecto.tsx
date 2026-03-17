@@ -59,7 +59,7 @@ function CardDetail({
             className={`
                 relative w-72 rounded-xl overflow-hidden cursor-pointer
                 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2
-                bg-gradient-to-b ${getTipoColor(Tipo)}
+                 ${getTipoColor(Tipo)}
                 border-2 border-red-600 shadow-[0_0_20px_rgba(139,0,0,0.3)]
                 hover:shadow-[0_0_30px_rgba(139,0,0,0.6)] hover:border-yellow-600
                 group
@@ -67,7 +67,7 @@ function CardDetail({
             `} 
             onClick={() => onOpen && onOpen()}
         >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute top-0 left-0 w-full h-1  from-transparent via-yellow-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             
             {Rareza && (
                 <span className={`
@@ -86,10 +86,10 @@ function CardDetail({
             </div>
 
             <div className="relative m-4 mb-2">
-                <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600 to-red-600 rounded-lg blur-sm opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                <div className="absolute -inset-2  from-yellow-600 to-red-600 rounded-lg blur-sm opacity-50 group-hover:opacity-75 transition-opacity"></div>
                 <div className="absolute -inset-1 bg-black rounded-lg transform scale-[1.02] group-hover:scale-[1.03] transition-transform"></div>
                 
-                <div className="relative z-10 p-1.5 bg-gradient-to-br from-amber-800 to-amber-600 rounded-lg shadow-xl">
+                <div className="relative z-10 p-1.5  from-amber-800 to-amber-600 rounded-lg shadow-xl">
                 
                     <div className="absolute inset-0 rounded-lg border-2 border-amber-400/30 pointer-events-none"></div>
                     
@@ -158,7 +158,7 @@ function CardDetail({
                 </div>
             </div>
 
-            <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-black/50 to-transparent transform rotate-45 translate-x-6 translate-y-6"></div>
+            <div className="absolute bottom-0 right-0 w-12 h-12  from-black/50 to-transparent transform rotate-45 translate-x-6 translate-y-6"></div>
         </div>
     );
 }
