@@ -7,7 +7,11 @@ export type ApiCard = {
   lifePoints: number;
   pictureUrl: string;
   attributes: { 
-    tipo: string };
+    Rareza: string;
+    Debilidad: string;
+    Tipo: string;
+
+};
   userSecret?: string;
   createdAt?: string;
   updatedAt?: string | null;
@@ -19,9 +23,8 @@ export type Card = {
   Ataque: number;
   Defensa: number;
   Descripcion: string;
-  Debilidad?: string;
-  Rareza?: string;
-  Imagen?: string;
-  URL?: string;
+  Debilidad: string;
+  Rareza: string;
+  Imagen: string;
   vida:number;
 };

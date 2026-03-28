@@ -1,25 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import type { Card } from "../util/interface";
 
-type NewCard = {
-  Nombre: string;
-  Tipo: string;
-  Ataque: number;
-  Defensa: number;
-  Descripcion: string;
-  Debilidad?: string;
-  Rareza?: string;
-  Imagen?: string;
-  vida: number;  
-  // Opcional, valor por defecto en toApiCard
-};
 
 
 interface CardFormProps {
-  onSubmit: (newCard: NewCard) => void;
+  onSubmit: (newCard: Card) => void;
 }
 
-const validateField = (field: keyof NewCard, value: any): string => {
+const validateField = (field: keyof Card, value: any): string => {
   switch (field) {
     case "Nombre":
       if (!value || String(value).trim().length < 3) return "El nombre es obligatorio (mínimo 3 caracteres).";
@@ -35,6 +24,10 @@ const validateField = (field: keyof NewCard, value: any): string => {
       if (value === "" || value === null || isNaN(Number(value))) return "Defensa debe ser un número.";
       if (Number(value) < 0) return "Defensa no puede ser negativo.";
       return "";
+    case "vida":
+      if (value === "" || value === null || isNaN(Number(value))) return "Vida debe ser un número.";
+      if (Number(value) < 0) return "Vida no puede ser negativo.";
+      return "";
     case "Descripcion":
       if (!value || String(value).trim().length < 10) return "Descripción mínima 10 caracteres.";
       return "";
@@ -43,16 +36,16 @@ const validateField = (field: keyof NewCard, value: any): string => {
   }
 };
 
-const validateAll = (values: NewCard) => {
-  const newErrors: Partial<Record<keyof NewCard, string>> = {};
-  (Object.keys(values) as Array<keyof NewCard>).forEach((key) => {
+const validateAll = (values: Card) => {
+  const newErrors: Partial<Record<keyof Card, string>> = {};
+  (Object.keys(values) as Array<keyof Card>).forEach((key) => {
     const err = validateField(key, values[key]);
     if (err) newErrors[key] = err;
   });
   return newErrors;
 };
 
-const CardPreview = ({ card }: { card: NewCard }) => {
+const CardPreview = ({ card }: { card: Card }) => {
   const getRarezaColor = (rareza: string) => {
     switch(rareza?.toLowerCase()) {
       case "mítica":
@@ -175,8 +168,8 @@ const CardPreview = ({ card }: { card: NewCard }) => {
   );
 };
 
-const CardForm = ({ onSubmit }: CardFormProps) => {
-  const [card, setCard] = useState<NewCard>({
+const CardForm = ({ onSubmit ,iscreating}: CardFormProps & {iscreating:boolean}) => {
+  const [card, setCard] = useState<Card>({
     Nombre: "",
     Tipo: "",
     Ataque: 0,
@@ -186,11 +179,12 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
     Rareza: "",
     Imagen: "",
     vida:0,
+    Numero:0
   });
 
-  const [errors, setErrors] = useState<Partial<Record<keyof NewCard, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof Card, string>>>({});
 
-  const handleChange = <K extends keyof NewCard>(field: K, value: NewCard[K]) => {
+  const handleChange = <K extends keyof Card>(field: K, value: Card[K]) => {
     setCard((prev) => ({ ...prev, [field]: value }));
     const err = validateField(field, value);
     setErrors((prev) => ({ ...prev, [field]: err }));
@@ -214,10 +208,14 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
       Debilidad: "",
       Rareza: "",
       Imagen: "",
-      vida:0,
+      vida:0, 
+      Numero:0
     });
     setErrors({});
   };
+    if (iscreating) {
+    return <>Creando Carta</>
+  }
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 justify-center items-start p-4">
@@ -277,7 +275,20 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
               </span>
             )}
           </div>
-          
+                  <div>
+            <label className="text-gray-300 font-semibold uppercase text-sm tracking-wider mb-2 block">
+            Vida
+            </label>
+            <input 
+            type="number"
+            min={0}
+              value={card.vida} 
+              onChange={(e) => handleChange("vida", Number(e.target.value))} 
+              className="w-full p-3 bg-black/80 border border-red-700 rounded-lg text-white
+                focus:border-yellow-600 focus:ring-2 focus:ring-red-700/50 focus:scale-[1.02] 
+                transition-all duration-300 placeholder:text-gray-500"
+            />
+          </div>
           <div className="flex gap-4">
             <div className="flex-1">
               <label className="text-gray-300 font-semibold uppercase text-sm tracking-wider mb-2 block">

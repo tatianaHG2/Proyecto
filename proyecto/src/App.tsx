@@ -4,7 +4,7 @@ import CardForm from "./pages/formulario";
 import Lista from "./pages/lista";
 import { Route , Routes} from "react-router-dom";
 import type { ApiCard, Card } from "./util/interface";
-import { fromApiCard } from "./util/mapper";
+import { fromApiCard, toApiCard, toApiCardCreate } from "./util/mapper";
 
 
 type NewCard = Omit<Card, "Numero">;
@@ -16,6 +16,7 @@ const defaultCards: Card[] = [
 
 function App() {
   const [cards, setCards] = useState<Card[]>(defaultCards);
+  const [iscreating,setIsCreating] = useState(false)
 
  
 
@@ -50,22 +51,15 @@ const fetchCards = async () => {
 
 // CREAR CARTA
 
-const createCard = async () => {
-  const nuevaCarta = {
-  name: "Pablo",
-    description: "Corrupcion",
-    attack: 2000,
-     defense: 1500,
-    lifePoints: 2500,
-    pictureUrl: "",
-    attributes: { tipo: "Mago" }
-  };
+const createCard = async (newCardData: Card) => {
+console.log(API_URL)
+setIsCreating(true)
  try {
     const response = await fetch(`${API_URL}/card`, {
   method: 'POST', headers: {
         usersecretpasskey: 'Tati669906NA'
       },
-      body: JSON.stringify(nuevaCarta) 
+      body: JSON.stringify(toApiCardCreate(newCardData)) 
   });
 
     const result = await response.json();
@@ -78,14 +72,13 @@ const createCard = async () => {
 
   } catch (error) {
     console.error('Error de red o conexión:', error);
+  }finally{
+    setIsCreating(false)
   }
 };
 
 
-  const handleFormSubmit = (newCardData: NewCard) => {
-    const newCard: Card = { Numero: Date.now(), ...newCardData } as Card;
-    setCards([...cards, newCard]);
-  };
+
 
 const deleteCard = async (id: number) => {
     try {
@@ -117,7 +110,8 @@ const deleteCard = async (id: number) => {
 
      <Routes>
       <Route path='/' element={<Lista cards={cards} setCards={setCards}/>}/>
-      <Route path='/crearCarta' element={<CardForm onSubmit={handleFormSubmit}/>}/>
+      <Route path='/crearCarta' element={<CardForm onSubmit={createCard}  iscreating={iscreating}/>}/>
+      <Route path='/actualizar:id' element={<CardForm onSubmit={createCard}  iscreating={iscreating}/>}/>
     
 
     </Routes>

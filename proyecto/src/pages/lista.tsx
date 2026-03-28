@@ -32,11 +32,12 @@ const handleDeleteFiltered = () => {
   const filteredCards = cards.filter((card: { Nombre: string; }) =>
     card.Nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+
+
 return (
 <>
-{selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion
-  
-} />}
+{selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion} onClose={closeModal} />}
  
       <div className="flex justify-center mb-8">
         <Link 
@@ -71,13 +72,6 @@ return (
         </Link>
       </div>
 
-    <SearchAndDelete 
-      onSearch={handleSearch}
-      onDeleteAll={handleDeleteFiltered}
-      cardsCount={cards.length}
-      filteredCount={filteredCards.length}
-      searchTerm={searchTerm}
-    />
 
     {/* Cards grid */}
     <div className="flex flex-wrap justify-center gap-8 mt-6">

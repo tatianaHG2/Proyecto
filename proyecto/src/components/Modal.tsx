@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 type props = {
   Numero: number;
   Nombre: string;
@@ -8,7 +10,8 @@ type props = {
   Debilidad?: string;
   Rareza?: string;
   Imagen?: string;
-  onClose?: () => void;
+  onClose: () => void;
+  onDelete?: () => void;
 };
 
 function Modal({
@@ -22,7 +25,9 @@ function Modal({
   Rareza = "",
   Imagen = "",
   onClose,
+  onDelete,
 }: props) {
+  const navigate = useNavigate();
   
   const getRarezaColor = (rareza: string) => {
     switch(rareza.toLowerCase()) {
@@ -64,6 +69,33 @@ function Modal({
     }
   };
 
+  const handleEdit = () => {
+
+    navigate(`/actualizar/${Numero}`, {
+      state: {
+        Numero,
+        Nombre,
+        Tipo,
+        Ataque,
+        Defensa,
+        Descripcion,
+        Debilidad,
+        Rareza,
+        Imagen
+      }
+    });
+    onClose();
+  };
+
+  const handleDelete = () => {
+    if (window.confirm(`¿Estás seguro de que quieres eliminar a ${Nombre}?`)) {
+      if (onDelete) {
+        onDelete();
+      }
+      onClose();
+    }
+  };
+
   const rarezaStyle = getRarezaColor(Rareza);
 
   return (
@@ -85,7 +117,7 @@ function Modal({
       <div 
         className={`
           relative w-80 max-w-full
-        from-black via-red-950 to-black
+          from-black via-red-950 to-black
           border-2 ${rarezaStyle.border}
           rounded-xl p-1
           shadow-[0_0_25px_rgba(139,0,0,0.5)] ${rarezaStyle.glow}
@@ -204,7 +236,7 @@ function Modal({
 
           <button
             onClick={onClose}
-            className="mt-3 w-full py-1.5  from-red-900 to-red-800
+            className="mt-3 w-full py-1.5 bg-gradient-to-r from-red-900 to-red-800
               text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
               rounded-lg border border-red-700 hover:border-yellow-600
               transition-all duration-300 hover:-translate-y-0.5
@@ -212,6 +244,28 @@ function Modal({
           >
             Cerrar
           </button>
+
+          <div className="grid grid-cols-2 gap-2 mt-3">
+            <button
+              onClick={handleEdit}
+              className="py-1.5 bg-gray-800 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
+                rounded-lg border border-gray-600 hover:border-gray-400 hover:bg-gray-700
+                transition-all duration-300 hover:-translate-y-0.5
+                shadow-lg"
+            >
+              ✏️ Editar
+            </button>
+
+            <button
+              onClick={handleDelete}
+              className="py-1.5 bg-gray-900 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
+                rounded-lg border border-red-800 hover:border-red-600 hover:bg-red-950
+                transition-all duration-300 hover:-translate-y-0.5
+                shadow-lg"
+            >
+              🗑️ Eliminar
+            </button>
+          </div>
         </div>
       </div>
     </div>
