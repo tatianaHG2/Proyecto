@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 type NewCard = {
   Nombre: string;
@@ -10,7 +10,10 @@ type NewCard = {
   Debilidad?: string;
   Rareza?: string;
   Imagen?: string;
+  vida: number;  
+  // Opcional, valor por defecto en toApiCard
 };
+
 
 interface CardFormProps {
   onSubmit: (newCard: NewCard) => void;
@@ -182,6 +185,7 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
     Debilidad: "",
     Rareza: "",
     Imagen: "",
+    vida:0,
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof NewCard, string>>>({});
@@ -210,6 +214,7 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
       Debilidad: "",
       Rareza: "",
       Imagen: "",
+      vida:0,
     });
     setErrors({});
   };
@@ -398,7 +403,7 @@ const CardForm = ({ onSubmit }: CardFormProps) => {
         </p>
       </div>
          <div className="flex justify-center mb-8"></div>
-                  <Link to= '/inicio'  className="group relative inline-flex items-center justify-center px-8 py-4 
+                  <Link to= '/'  className="group relative inline-flex items-center justify-center px-8 py-4 
           from-purple-600 to-blue-600 
             text-white font-bold text-lg rounded-xl
             shadow-lg hover:shadow-2xl 

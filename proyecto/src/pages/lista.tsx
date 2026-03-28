@@ -1,10 +1,9 @@
 import { useState } from "react";
 import SearchAndDelete from "../components/button";
-import type{ Card } from "../App";
 import CardDetail from "../components/cartaProyecto";
 import { Link } from "react-router";
-
-
+import type { Card } from "../util/interface";
+import Modal from "../components/Modal";
 
 
 
@@ -14,9 +13,9 @@ function Lista({setCards,cards}:{cards: Card[],setCards: React.Dispatch<React.Se
       const [searchTerm, setSearchTerm] = useState("");
 
 const openCard = (card: Card) => setSelected(card);
-  const closeModal = () => setSelected(null);
+const closeModal = () => setSelected(null);
 
-     const handleDeleteFiltered = () => {
+const handleDeleteFiltered = () => {
     setCards(cards.filter(card => 
       !card.Nombre.toLowerCase().includes(searchTerm.toLowerCase())
     ));
@@ -35,6 +34,9 @@ const openCard = (card: Card) => setSelected(card);
   );
 return (
 <>
+{selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion
+  
+} />}
  
       <div className="flex justify-center mb-8">
         <Link 
@@ -83,7 +85,7 @@ return (
         <div 
           key={carta.Numero} 
           className="transform transition-all duration-300 hover:-translate-y-2 hover:scale-105 cursor-pointer"
-          onClick={() => openCard(carta)}
+
         >
           <CardDetail
             Nombre={carta.Nombre}
