@@ -58,12 +58,12 @@ function App() {
     const response = await fetch(`${API_URL}/card/${id}`, {
       method: 'DELETE',
       headers: { 
-        'usersecretpasskey': 'Tati669906NA' // Tu clave
+        'usersecretpasskey': 'Tati669906NA' 
       }
     });
 
     if (response.ok) {
-      // Esto borra la carta de la pantalla inmediatamente sin recargar
+   
       setCards(prevCards => prevCards.filter(card => card.Numero !== id));
       console.log(`Carta ${id} eliminada con éxito`);
     } else {
