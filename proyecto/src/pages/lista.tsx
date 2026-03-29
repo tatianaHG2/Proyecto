@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SearchAndDelete from "../components/button";
+
 import CardDetail from "../components/cartaProyecto";
 import { Link } from "react-router";
 import type { Card } from "../util/interface";
@@ -7,37 +7,23 @@ import Modal from "../components/Modal";
 
 
 
-function Lista({setCards,cards}:{cards: Card[],setCards: React.Dispatch<React.SetStateAction<Card[]>>}) {
+function Lista({cards, onDelete}:{cards: Card[], onDelete: (id: number) => Promise<void>}) {
       const [selected, setSelected] = useState<Card | null>(null);
     
-      const [searchTerm, setSearchTerm] = useState("");
+      const [searchTerm] = useState("");
 
 const openCard = (card: Card) => setSelected(card);
 const closeModal = () => setSelected(null);
 
-const handleDeleteFiltered = () => {
-    setCards(cards.filter(card => 
-      !card.Nombre.toLowerCase().includes(searchTerm.toLowerCase())
-    ));
-    
-    if (selected && selected.Nombre.toLowerCase().includes(searchTerm.toLowerCase())) {
-      closeModal();
-    }
-  };
 
-  const handleSearch = (term: string) => {
-    setSearchTerm(term);
-  };
 
   const filteredCards = cards.filter((card: { Nombre: string; }) =>
     card.Nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-
-
 return (
 <>
-{selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion} onClose={closeModal} />}
+{selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion} onClose={closeModal} onDelete={() => onDelete(selected.Numero)} />}
  
       <div className="flex justify-center mb-8">
         <Link 

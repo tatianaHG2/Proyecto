@@ -1,4 +1,4 @@
-import type { Card ,ApiCard} from "./interface";
+import type { Card ,ApiCard, } from "./interface";
 
 export const toApiCard = (carta: Card): ApiCard => ({
   idCard: String(carta.Numero),       

@@ -10,6 +10,7 @@ type props = {
   Debilidad?: string;
   Rareza?: string;
   Imagen?: string;
+  vida?: number;
   onClose: () => void;
   onDelete?: () => void;
 };
@@ -24,6 +25,7 @@ function Modal({
   Debilidad = "",
   Rareza = "",
   Imagen = "",
+  vida = 0,
   onClose,
   onDelete,
 }: props) {
@@ -71,7 +73,7 @@ function Modal({
 
   const handleEdit = () => {
 
-    navigate(`/actualizar/${Numero}`, {
+    navigate(`/actualizar/:id`, {
       state: {
         Numero,
         Nombre,
@@ -81,10 +83,11 @@ function Modal({
         Descripcion,
         Debilidad,
         Rareza,
-        Imagen
+        Imagen,
+        vida
       }
     });
-    onClose();
+    onClose(); 
   };
 
   const handleDelete = () => {
@@ -117,7 +120,7 @@ function Modal({
       <div 
         className={`
           relative w-80 max-w-full
-          from-black via-red-950 to-black
+           from-black via-red-950 to-black
           border-2 ${rarezaStyle.border}
           rounded-xl p-1
           shadow-[0_0_25px_rgba(139,0,0,0.5)] ${rarezaStyle.glow}
@@ -126,7 +129,7 @@ function Modal({
         `}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="absolute top-0 left-0 w-full h-0.5 from-transparent via-yellow-400 to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-0.5  from-transparent via-yellow-400 to-transparent"></div>
         
         <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-yellow-600 rounded-tl-xl"></div>
         <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-yellow-600 rounded-tr-xl"></div>
@@ -153,7 +156,7 @@ function Modal({
               className="w-7 h-7 rounded-full bg-red-900/50 border border-red-700
                 text-white text-lg hover:bg-red-800 hover:border-yellow-600
                 transition-all duration-300 hover:rotate-90 hover:scale-110
-                flex items-center justify-center "
+                flex items-center justify-center"
             >
               ✕
             </button>
@@ -182,7 +185,7 @@ function Modal({
               {Rareza && (
                 <span className={`
                   absolute -top-1 -right-1 z-20
-                 ${rarezaStyle.bg} text-white
+                   ${rarezaStyle.bg} text-white
                   px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider
                   border border-white/30 shadow-lg
                   transform rotate-3
@@ -215,6 +218,16 @@ function Modal({
             </div>
           </div>
 
+          {vida > 0 && (
+            <div className="mb-3 bg-black/60 rounded-lg p-2 border border-green-700/50">
+              <p className="text-[10px] text-gray-400 uppercase">Vida</p>
+              <p className="text-lg font-bold text-green-500">{vida}</p>
+              <div className="w-full h-0.5 bg-green-900/50 mt-1">
+                <div className="h-full bg-green-500" style={{width: `${(vida/150)*100}%`}}></div>
+              </div>
+            </div>
+          )}
+
           <div className="mb-3 p-2 bg-black/40 rounded-lg border border-red-700/30 relative">
             <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-red-700/30"></div>
             <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-red-700/30"></div>
@@ -236,7 +249,7 @@ function Modal({
 
           <button
             onClick={onClose}
-            className="mt-3 w-full py-1.5 bg-gradient-to-r from-red-900 to-red-800
+            className="mt-3 w-full py-1.5  from-red-900 to-red-800
               text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
               rounded-lg border border-red-700 hover:border-yellow-600
               transition-all duration-300 hover:-translate-y-0.5
@@ -248,20 +261,20 @@ function Modal({
           <div className="grid grid-cols-2 gap-2 mt-3">
             <button
               onClick={handleEdit}
-              className="py-1.5 bg-gray-800 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
-                rounded-lg border border-gray-600 hover:border-gray-400 hover:bg-gray-700
+              className="py-1.5 from-blue-900 to-blue-800 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
+                rounded-lg border border-blue-700 hover:border-yellow-600 hover:from-blue-800 hover:to-blue-700
                 transition-all duration-300 hover:-translate-y-0.5
-                shadow-lg"
+                shadow-lg flex items-center justify-center gap-2"
             >
               ✏️ Editar
             </button>
 
             <button
               onClick={handleDelete}
-              className="py-1.5 bg-gray-900 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
-                rounded-lg border border-red-800 hover:border-red-600 hover:bg-red-950
+              className="py-1.5  from-red-900 to-red-800 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
+                rounded-lg border border-red-800 hover:border-red-600 hover:from-red-800 hover:to-red-700
                 transition-all duration-300 hover:-translate-y-0.5
-                shadow-lg"
+                shadow-lg flex items-center justify-center gap-2"
             >
               🗑️ Eliminar
             </button>
