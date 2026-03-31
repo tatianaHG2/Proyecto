@@ -23,7 +23,7 @@ const closeModal = () => setSelected(null);
 
 return (
 <>
-{selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion} Imagen={selected.Imagen} Debilidad={selected.Debilidad} Rareza={selected.Rareza} vida={selected.vida} onClose={closeModal} onDelete={() => onDelete(selected.Numero)} />}
+{selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion} Imagen={selected.Imagen} Debilidad={selected.Debilidad} Rareza={selected.Rareza} onClose={closeModal} onDelete={() => onDelete(selected.Numero)} />}
  
       <div className="flex justify-center mb-8">
         <Link 

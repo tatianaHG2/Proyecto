@@ -81,7 +81,9 @@ function Modal({
         Descripcion,
         Debilidad,
         Rareza,
-        Imagen
+        Imagen,
+
+    
       }
     });
     onClose();
