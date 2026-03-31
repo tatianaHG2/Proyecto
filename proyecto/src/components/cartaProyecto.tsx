@@ -8,6 +8,7 @@ type Props = {
     Imagen: string;
     Debilidad?: string;
     Rareza?: string;
+    vida?: number;
     onOpen?: () => void;
     className?: string;
 }
@@ -21,6 +22,7 @@ function CardDetail({
     Descripcion,
     Debilidad,
     Rareza = "",
+    vida = 0,
     onOpen,
     className = "",
 }: Props) {
@@ -127,14 +129,18 @@ function CardDetail({
                 </p>
 
 
-                <div className="flex justify-between gap-2 mb-3">
-                    <div className="flex-1 bg-black/60 rounded-lg p-2 border border-red-600/50">
+                <div className="grid grid-cols-3 gap-2 mb-3">
+                    <div className="bg-black/60 rounded-lg p-2 border border-red-600/50">
                         <span className="block text-xs text-gray-400 uppercase">Ataque</span>
                         <span className="text-lg font-bold text-red-500">{Ataque}</span>
                     </div>
-                    <div className="flex-1 bg-black/60 rounded-lg p-2 border border-blue-600/50">
+                    <div className="bg-black/60 rounded-lg p-2 border border-blue-600/50">
                         <span className="block text-xs text-gray-400 uppercase">Defensa</span>
                         <span className="text-lg font-bold text-blue-500">{Defensa}</span>
+                    </div>
+                    <div className="bg-black/60 rounded-lg p-2 border border-green-600/50">
+                        <span className="block text-xs text-gray-400 uppercase">Vida</span>
+                        <span className="text-lg font-bold text-green-500">{vida}</span>
                     </div>
                 </div>
 

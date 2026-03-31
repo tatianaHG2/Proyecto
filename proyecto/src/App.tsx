@@ -4,7 +4,8 @@ import CardForm from "./pages/formulario";
 import Lista from "./pages/lista";
 import { Route , Routes} from "react-router-dom";
 import type { ApiCard, Card } from "./util/interface";
-import { fromApiCard, toApiCardCreate, toApiCard } from "./util/mapper";
+import { fromApiCard, toApiCardCreate, toApiUpdateCartaMap } from "./util/mapper";
+import { updateCard as apiUpdateCard } from './components/api.ts';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -35,20 +36,35 @@ function App() {
         headers: { 'Content-Type': 'application/json', usersecretpasskey: 'Tati669906NA' },
         body: JSON.stringify(toApiCardCreate(newCardData)) 
       });
-      if (response.ok) await fetchCards();
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      const responseText = await response.text();
+      console.log('Response body:', responseText);
+      if (response.ok) {
+        // Agregar la carta localmente con imagen
+        const newId = Math.max(...cards.map(c => c.Numero), 0) + 1;
+        const newCard: Card = { ...newCardData, Numero: newId };
+        setCards(prev => [...prev, newCard]);
+      }
     } finally { setIsCreating(false); }
   };
 
   const updateCard = async (cardData: Card, id?: number) => {
     if (!id) return;
     setIsCreating(true);
+    // Actualizar localmente primero
+    setCards(prev => prev.map(c => c.Numero === id ? cardData : c));
     try {
-      const response = await fetch(`${API_URL}/card/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json', usersecretpasskey: 'Tati669906NA' },
-        body: JSON.stringify(toApiCard(cardData))
-      });
-      if (response.ok) await fetchCards();
+      const response = await apiUpdateCard(id, toApiUpdateCartaMap(cardData));
+      console.log('Update Response status:', response.status);
+      console.log('Update Response ok:', response.ok);
+      const responseText = await response.text();
+      console.log('Update Response body:', responseText);
+      // Si la API funciona, refrescar para sincronizar
+      await fetchCards();
+    } catch (error) {
+      console.log('Update error:', error);
+      // Si falla, la actualización local queda
     } finally { setIsCreating(false); }
   };
 

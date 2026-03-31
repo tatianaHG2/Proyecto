@@ -1,5 +1,5 @@
 export type ApiCard = {
-  idCard: string;
+  idCard: number;
   name: string;
   description: string;
   attack: number;
@@ -7,9 +7,9 @@ export type ApiCard = {
   lifePoints: number;
   pictureUrl: string;
   attributes: { 
-    Rareza: string;
-    Debilidad: string;
-    Tipo: string;
+    rareza: string;
+    debilidad: string;
+    tipo: string;
 
 };
   userSecret?: string;
@@ -28,3 +28,16 @@ export type Card = {
   Imagen: string;
   vida:number;
 };
+export const toApiUpdateCartaMap = (card: Card): Omit<ApiCard, "idCard" | "userSecret" | "createdAt" | "updatedAt"> => ({
+  name: card.Nombre,
+  description: card.Descripcion,
+  attack: card.Ataque,
+  defense: card.Defensa,
+  lifePoints: card.vida,
+  pictureUrl: card.Imagen,
+  attributes: {
+    rareza: card.Rareza,
+    debilidad: card.Debilidad,
+    tipo: card.Tipo
+  },
+});

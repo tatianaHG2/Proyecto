@@ -121,6 +121,10 @@ const CardPreview = ({ card }: { card: Card }) => {
             <span className="block text-xs text-gray-400 uppercase">Defensa</span>
             <span className="text-lg font-bold text-blue-500">{card.Defensa}</span>
           </div>
+          <div className="flex-1 bg-black/60 rounded-lg p-2 border border-green-600/50">
+            <span className="block text-xs text-gray-400 uppercase">Vida</span>
+            <span className="text-lg font-bold text-green-500">{card.vida}</span>
+          </div>
         </div>
         {card.Descripcion && (
           <div className="mt-3 p-2 bg-black/40 rounded-lg border border-red-700/30">
