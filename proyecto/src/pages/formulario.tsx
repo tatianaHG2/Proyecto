@@ -140,7 +140,7 @@ const CardPreview = ({ card }: { card: Card }) => {
           </div>
         )}
       </div>
-      <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-r from-black/50 to-transparent transform rotate-45 translate-x-6 translate-y-6"></div>
+      <div className="absolute bottom-0 right-0 w-12 h-12 bg-linear-to-r from-black/50 to-transparent transform rotate-45 translate-x-6 translate-y-6"></div>
     </div>
   );
 };
@@ -160,7 +160,8 @@ const CardForm = ({ onSubmit, iscreating = false, isEditing = false }: CardFormP
     Rareza: "",
     Imagen: "",
     vida: 0,
-    Numero: 0
+    Numero: 0,
+    idCard: 0
   });
 
   const [card, setCard] = useState<Card>(getInitialCardState());
@@ -212,9 +213,9 @@ const CardForm = ({ onSubmit, iscreating = false, isEditing = false }: CardFormP
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 justify-center items-start p-4">
-      <form onSubmit={handleSubmit} className="w-full lg:w-[500px] p-6 bg-gradient-to-r from-black/90 via-red-950/90 to-black/90 border-2 border-red-700 rounded-2xl shadow-[0_0_30px_rgba(139,0,0,0.3)] backdrop-blur-sm relative overflow-hidden">
+      <form onSubmit={handleSubmit} className="w-full lg:w-[500px] p-6 bg-linear-to-r from-black/90 via-red-950/90 to-black/90 border-2 border-red-700 rounded-2xl shadow-[0_0_30px_rgba(139,0,0,0.3)] backdrop-blur-sm relative overflow-hidden">
         <div className="absolute -top-10 -right-10 text-9xl font-black text-red-900/20 rotate-12 select-none">REBELDE</div>
-        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-red-600 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-linear-to-r from-transparent via-red-600 to-transparent"></div>
 
         <h2 className="text-white font-['Black_Ops_One',cursive] text-2xl mb-6 pb-2 border-b-2 border-red-700 drop-shadow-[0_0_10px_rgba(139,0,0,0.5)]">
           {isEditing ? "EDITAR CARTA" : "CREAR CARTA"}
@@ -329,12 +330,12 @@ const CardForm = ({ onSubmit, iscreating = false, isEditing = false }: CardFormP
             <button 
               type="submit" 
               disabled={Object.values(errors).some((v) => v && v.length > 0)}
-              className="flex-1 bg-gradient-to-r from-red-900 to-red-800 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider py-3 px-6 rounded-full border-2 border-red-700 hover:border-yellow-600 hover:shadow-[0_5px_20px_rgba(139,0,0,0.5)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:border-red-700 relative overflow-hidden group">
+              className="flex-1 bg-linear-to-r from-red-900 to-red-800 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider py-3 px-6 rounded-full border-2 border-red-700 hover:border-yellow-600 hover:shadow-[0_5px_20px_rgba(139,0,0,0.5)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:border-red-700 relative overflow-hidden group">
               <span className="relative z-10">{isEditing ? "Actualizar carta" : "Crear carta"}</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+              <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
             </button>
             
-            <Link to='/' className="flex-1 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider py-3 px-6 rounded-full border-2 border-gray-700 hover:border-yellow-600 hover:shadow-[0_5px_20px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all duration-300 text-center">
+            <Link to='/' className="flex-1 bg-linear-to-r from-gray-800 to-gray-900 text-white font-['Black_Ops_One',cursive] uppercase tracking-wider py-3 px-6 rounded-full border-2 border-gray-700 hover:border-yellow-600 hover:shadow-[0_5px_20px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all duration-300 text-center">
               Cancelar
             </Link>
           </div>

@@ -106,6 +106,9 @@ function CardDetail({
                         src={Imagen} 
                         alt={Nombre} 
                         className="relative z-10 w-full h-56 object-contain rounded-md bg-black/40"
+                        onError={(e) => {
+                            e.currentTarget.src = 'https://via.placeholder.com/300x200?text=Imagen+no+disponible';
+                        }}
                     />
           
                     <div className="absolute top-0 left-0 w-full h-full pointer-events-none">

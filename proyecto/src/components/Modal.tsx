@@ -238,7 +238,7 @@ function Modal({
 
           <button
             onClick={onClose}
-            className="mt-3 w-full py-1.5 bg-gradient-to-r from-red-900 to-red-800
+            className="mt-3 w-full py-1.5 bg-linear-to-r from-red-900 to-red-800
               text-white font-['Black_Ops_One',cursive] uppercase tracking-wider text-sm
               rounded-lg border border-red-700 hover:border-yellow-600
               transition-all duration-300 hover:-translate-y-0.5

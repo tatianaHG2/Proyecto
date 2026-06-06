@@ -21,7 +21,7 @@ export const toApiCardCreate = (carta: Card): Omit<Omit<Omit<ApiCard,"idCard">,"
   attack: carta.Ataque,
   defense: carta.Defensa,
   lifePoints: carta.vida || 1, // Asegurar que no sea 0
-  pictureUrl: "", // No enviar imagen para evitar límites
+  pictureUrl: carta.Imagen,
   attributes: { 
     debilidad: carta.Debilidad,
     rareza: carta.Rareza ,
@@ -30,21 +30,18 @@ export const toApiCardCreate = (carta: Card): Omit<Omit<Omit<ApiCard,"idCard">,"
   userSecret: "Tati669906NA"
 });
 
-export const toApiUpdateCartaMap = (card: Card): Omit<ApiCard, "idCard"> => ({
+export const toApiUpdateCartaMap = (card: Card): Omit<ApiCard, "idCard" | "userSecret" | "createdAt" | "updatedAt"> => ({
   name: card.Nombre,
   description: card.Descripcion,
   attack: card.Ataque,
   defense: card.Defensa,
   lifePoints: card.vida || 1, // Asegurar que no sea 0
-  pictureUrl: "", // No enviar imagen para evitar límites
+  pictureUrl: card.Imagen,
   attributes: {
     rareza: card.Rareza,
     debilidad: card.Debilidad,
     tipo: card.Tipo
   },
-  userSecret: "Tati669906NA",
-  createdAt: new Date().toISOString(),
-  updatedAt: new Date().toISOString()
 });
 
 export const fromApiCard = (a: ApiCard): Card => ({
@@ -58,4 +55,5 @@ export const fromApiCard = (a: ApiCard): Card => ({
   Rareza: a.attributes?.rareza || "",
   Imagen: a.pictureUrl || "",
   vida: a.lifePoints,
+  idCard: 0
 });

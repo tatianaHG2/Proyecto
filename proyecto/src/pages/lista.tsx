@@ -1,7 +1,6 @@
 import { useState } from "react";
-
 import CardDetail from "../components/cartaProyecto";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import type { Card } from "../util/interface";
 import Modal from "../components/Modal";
 
@@ -24,37 +23,27 @@ const closeModal = () => setSelected(null);
 return (
 <>
 {selected&& <Modal Numero={selected.Numero} Nombre={selected.Nombre} Tipo={selected.Tipo} Ataque={selected.Ataque} Defensa={selected.Defensa} Descripcion={selected.Descripcion} Imagen={selected.Imagen} Debilidad={selected.Debilidad} Rareza={selected.Rareza} onClose={closeModal} onDelete={() => onDelete(selected.Numero)} />}
- 
-      <div className="flex justify-center mb-8">
-        <Link 
-          to='/crearCarta' 
-          className="group relative inline-flex items-center justify-center px-8 py-4 
-           from-purple-600 to-blue-600 
-            text-white font-bold text-lg rounded-xl
-            shadow-lg hover:shadow-2xl 
-            transform transition-all duration-300 
-            hover:scale-105 hover:from-purple-700 hover:to-blue-700
-            focus:outline-none focus:ring-4 focus:ring-purple-300
-            overflow-hidden"
+
+  <header className="w-full py-8 text-center">
+    <h1 className="text-4xl font-extrabold">Rebelde Way</h1>
+    <p className="text-sm text-gray-300 mt-2">Crea y explora tus cartas desde aquí</p>
+  </header>
+
+  <div className="flex justify-center mb-8 gap-4">
+        <Link
+          to="/crearCarta"
+          className="group relative inline-flex items-center justify-center px-8 py-4 bg-linear-to-r from-purple-600 to-blue-600 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-300 overflow-hidden"
         >
-          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 
-            transition-opacity duration-300"></span>
-          <span className="relative flex items-center gap-2">
-            <svg 
-              className="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M12 4v16m8-8H4" 
-              />
-            </svg>
-            Crear Nueva Carta
-          </span>
+          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+          <span className="relative flex items-center gap-2">Crear Nueva Carta</span>
+        </Link>
+
+        <Link
+          to="/seleccionar-carta"
+          className="group relative inline-flex items-center justify-center px-8 py-4 bg-linear-to-r from-amber-400 to-orange-500 text-slate-950 font-bold text-lg rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-300 overflow-hidden"
+        >
+          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+          <span className="relative flex items-center gap-2">Batalla</span>
         </Link>
       </div>
 
