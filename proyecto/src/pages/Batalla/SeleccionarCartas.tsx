@@ -110,7 +110,7 @@ function SeleccionarCartas({ mazo, loading }: Props) {
             </div>
           )}
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-12 flex flex-col items-center gap-4">
             <button
               type="button"
               onClick={() => {
@@ -129,6 +129,14 @@ function SeleccionarCartas({ mazo, loading }: Props) {
               {listoBatalla && (
                 <span className="absolute inset-0 rounded-full bg-linear-to-r from-red-600/0 via-amber-500/30 to-red-600/0 blur-md animate-pulse"></span>
               )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-bold uppercase tracking-[0.15em] bg-slate-900 text-slate-100 border border-slate-700 transition hover:bg-slate-800 hover:text-white"
+            >
+              Volver al inicio
             </button>
           </div>
 

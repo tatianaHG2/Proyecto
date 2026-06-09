@@ -18,7 +18,7 @@ function CardDetail({
     Defensa,
     Imagen,
     Nombre,
-    Tipo,
+    Tipo = "",
     Descripcion,
     Debilidad,
     Rareza = "",
@@ -43,7 +43,7 @@ function CardDetail({
     };
 
     const getTipoColor = (tipo: string) => {
-        const tipoLower = tipo.toLowerCase();
+        const tipoLower = String(tipo ?? "").toLowerCase();
         if (tipoLower.includes("líder") || tipoLower.includes("lider")) return "from-red-900 to-red-700";
         if (tipoLower.includes("político") || tipoLower.includes("politico")) return "from-blue-900 to-blue-700";
         if (tipoLower.includes("social")) return "from-green-900 to-green-700";
