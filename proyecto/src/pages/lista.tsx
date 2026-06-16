@@ -3,20 +3,12 @@ import CardDetail from "../components/cartaProyecto";
 import { Link } from "react-router-dom";
 import type { Card } from "../util/interface";
 import Modal from "../components/Modal";
-
-
-
 function Lista({cards, onDelete}:{cards: Card[], onDelete: (id: number) => Promise<void>}) {
-      const [selected, setSelected] = useState<Card | null>(null);
-    
-      const [searchTerm] = useState("");
-
+const [selected, setSelected] = useState<Card | null>(null);
+const [searchTerm] = useState("");
 const openCard = (card: Card) => setSelected(card);
 const closeModal = () => setSelected(null);
-
-
-
-  const filteredCards = cards.filter((card: { Nombre: string; }) =>
+const filteredCards = cards.filter((card: { Nombre: string; }) =>
     card.Nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 

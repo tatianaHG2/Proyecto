@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Card } from "../../util/interface";
 import CardDetail from "../../components/cartaProyecto";
+import AudioPlayer from "../../components/AudioPlayer";
 
 type Props = {
   mazo: Card[];
@@ -57,6 +58,9 @@ function SeleccionarCartas({ mazo, loading }: Props) {
               Elige dos Rebeldes y desata el caos
             </p>
           </header>
+          <div className="max-w-3xl mx-auto mb-6">
+            <AudioPlayer label="Música para seleccionar cartas" />
+          </div>
 
           {loading ? (
             <div className="text-center py-20">

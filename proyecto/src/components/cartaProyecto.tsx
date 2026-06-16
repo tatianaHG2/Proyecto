@@ -11,6 +11,7 @@ type Props = {
     vida?: number;
     onOpen?: () => void;
     className?: string;
+    landscape?: boolean;
 }
 
 function CardDetail({
@@ -25,6 +26,7 @@ function CardDetail({
     vida = 0,
     onOpen,
     className = "",
+    landscape = false,
 }: Props) {
 
     const getRarezaColor = (rareza: string) => {
@@ -59,7 +61,7 @@ function CardDetail({
     return (
         <div 
             className={`
-                relative w-72 rounded-xl overflow-hidden cursor-pointer
+                relative ${landscape ? "w-[420px] md:w-[520px]" : "w-72"} rounded-xl overflow-hidden cursor-pointer
                 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2
                  ${getTipoColor(Tipo)}
                 border-2 border-red-600 shadow-[0_0_20px_rgba(139,0,0,0.3)]
@@ -105,7 +107,7 @@ function CardDetail({
                     <img 
                         src={Imagen} 
                         alt={Nombre} 
-                        className="relative z-10 w-full h-56 object-contain rounded-md bg-black/40"
+                        className={`relative z-10 w-full ${landscape ? 'h-40 md:h-44' : 'h-56'} object-contain rounded-md bg-black/40`}
                         onError={(e) => {
                             e.currentTarget.src = 'https://via.placeholder.com/300x200?text=Imagen+no+disponible';
                         }}
