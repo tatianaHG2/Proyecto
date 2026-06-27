@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+
 export type ApiCard = {
   idCard: number;
   name: string;
@@ -8,7 +9,8 @@ export type ApiCard = {
   defense: number;
   lifePoints: number;
   pictureUrl: string;
-  attributes: { 
+  attributes: {
+    element: string; 
     rareza: string;
     debilidad: string;
     tipo: string;
@@ -44,4 +46,5 @@ export const toApiUpdateCartaMap = (card: Card): Omit<ApiCard, "idCard" | "userS
     debilidad: card.Debilidad,
     tipo: card.Tipo
   },
+  
 });

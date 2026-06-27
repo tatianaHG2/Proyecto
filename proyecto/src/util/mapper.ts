@@ -1,33 +1,35 @@
-import type { Card ,ApiCard, } from "./interface";
+import type { Card, ApiCard } from "./interface";
 
 export const toApiCard = (carta: Card): ApiCard => ({
-  idCard: carta.Numero,       
+  idCard: carta.Numero,
   name: carta.Nombre,
   description: carta.Descripcion,
   attack: carta.Ataque,
   defense: carta.Defensa,
   lifePoints: carta.vida,
-  pictureUrl: carta.Imagen ,
-  attributes: { 
+  pictureUrl: carta.Imagen,
+  attributes: {
+    element: "Rebelde",           // ✅ Agregado
     debilidad: carta.Debilidad,
-    rareza: carta.Rareza ,
-    tipo:carta.Tipo
+    rareza: carta.Rareza,
+    tipo: carta.Tipo,
   },
 });
 
-export const toApiCardCreate = (carta: Card): Omit<Omit<Omit<ApiCard,"idCard">,"createdAt">,"updatedAt"> => ({   
+export const toApiCardCreate = (carta: Card): Omit<Omit<Omit<ApiCard, "idCard">, "createdAt">, "updatedAt"> => ({
   name: carta.Nombre,
   description: carta.Descripcion,
   attack: carta.Ataque,
   defense: carta.Defensa,
-  lifePoints: carta.vida || 1, // Asegurar que no sea 0
+  lifePoints: carta.vida || 1,
   pictureUrl: carta.Imagen,
-  attributes: { 
+  attributes: {
+    element: "Rebelde",           // ✅ Agregado
     debilidad: carta.Debilidad,
-    rareza: carta.Rareza ,
-    tipo:carta.Tipo
+    rareza: carta.Rareza,
+    tipo: carta.Tipo,
   },
-  userSecret: "Tati669906NA"
+  userSecret: "Tati669906NA", 
 });
 
 export const toApiUpdateCartaMap = (card: Card): Omit<ApiCard, "idCard" | "userSecret" | "createdAt" | "updatedAt"> => ({
@@ -35,12 +37,13 @@ export const toApiUpdateCartaMap = (card: Card): Omit<ApiCard, "idCard" | "userS
   description: card.Descripcion,
   attack: card.Ataque,
   defense: card.Defensa,
-  lifePoints: card.vida || 1, // Asegurar que no sea 0
+  lifePoints: card.vida || 1,
   pictureUrl: card.Imagen,
   attributes: {
+    element: "Rebelde",           // ✅ Agregado
     rareza: card.Rareza,
     debilidad: card.Debilidad,
-    tipo: card.Tipo
+    tipo: card.Tipo,
   },
 });
 
@@ -55,5 +58,5 @@ export const fromApiCard = (a: ApiCard): Card => ({
   Rareza: a.attributes?.rareza || "",
   Imagen: a.pictureUrl || "",
   vida: a.lifePoints,
-  idCard: 0
+  idCard: 0,
 });

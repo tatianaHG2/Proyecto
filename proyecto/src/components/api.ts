@@ -90,3 +90,50 @@ export const updateCard = async (idCard: number, updatedData: Omit<ApiCard, 'idC
     throw error;
   }
 };
+
+
+
+
+
+
+// ✅ Función corregida para generar carta con IA
+export const generarCartaConIA = async (cardPrompt: string): Promise<ApiCard> => {
+  try {
+    const urlIA = `${API_URL}/ai/generate-card`;
+    console.log('📤 Enviando prompt a IA:', cardPrompt);
+
+    const respuesta = await fetch(urlIA, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+         'usersecretpasskey': 'Tati669906NA', 
+      },
+      body: JSON.stringify({
+        globalContext: "Temática de Rebelde Way, personajes de música y drama adolescente. Ataque 0-100, defensa 0-50, vida 100-200.",
+        cardPrompt: cardPrompt,
+      }),
+    });
+
+    const textoRespuesta = await respuesta.text();
+    console.log('📥 Respuesta cruda IA:', textoRespuesta);
+
+    if (!respuesta.ok) {
+      throw new Error(`Error HTTP ${respuesta.status}: ${textoRespuesta}`);
+    }
+
+    const resultado = JSON.parse(textoRespuesta);
+    console.log('✅ Respuesta parseada IA:', resultado);
+
+    // La respuesta puede venir como { data: { ... } } o directamente el objeto
+    const cartaApi = resultado.data ?? resultado;
+
+    if (!cartaApi.name || !cartaApi.attack) {
+      throw new Error('La IA no generó una carta válida');
+    }
+
+    return cartaApi;
+  } catch (error) {
+    console.error('❌ Error en generarCartaConIA:', error);
+    throw error;
+  }
+};

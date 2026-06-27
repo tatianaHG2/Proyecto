@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import type { ApiCard, Card } from "./util/interface";
 import { fromApiCard, toApiCardCreate, toApiUpdateCartaMap } from "./util/mapper";
 import { createCard as apiCreateCard, updateCard as apiUpdateCard } from './components/api.ts';
+import GenerarCartaIA from "./pages/GenerarCartaIA.tsx";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -178,6 +179,8 @@ function App() {
     }
   };
 
+
+
   return (
     <div className="min-h-screen bg-linear-to-br from-purple-400 via-red-900 to-black text-white font-['Inter'] relative overflow-x-hidden">
       <Routes>
@@ -186,6 +189,7 @@ function App() {
         <Route path='/actualizar/:id' element={<CardForm onSubmit={updateCard} iscreating={iscreating} isEditing={true} />} />
         <Route path='/campo-de-batalla/:id1/:id2' element={<CampoDeBatalla />} />
         <Route path='/seleccionar-carta' element={<SeleccionarCartas mazo={cards} loading={iscreating} />} />
+           <Route path='/generar-carta-ia' element={<GenerarCartaIA />} /> {/* <-- NUEVA RUTA */}
       </Routes>
     </div>
   );
